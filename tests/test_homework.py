@@ -4,6 +4,8 @@ import os
 import subprocess
 import warnings
 
+import mlflow
+
 warnings.filterwarnings("ignore")
 
 
@@ -13,7 +15,7 @@ def test_01():
     try:
         for model in ["elasticnet", "knn"]:
             subprocess.run(
-                ["python3", "-m", "homework", "--model", model],
+                ["python", "-m", "homework", "--model", model],
                 check=True,
             )
     except subprocess.CalledProcessError as e:
@@ -29,6 +31,7 @@ def test_01():
     assert len(experiments) > 0, "No experiments found in mlruns directory."
 
     # Check if the required file exists
+    assert os.path.exists("make_predictions.py")
     assert os.path.exists("make_predictions.py")
     assert os.path.exists("make_predictions.py")
     assert os.path.exists("make_predictions.py")
