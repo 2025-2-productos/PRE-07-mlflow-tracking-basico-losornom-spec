@@ -30,3 +30,5 @@ def test_01():
 
     # Check if the required file exists
     assert os.path.exists("make_predictions.py")
+    assert os.path.exists("make_predictions.py")
+    assert os.path.exists("make_predictions.py")
